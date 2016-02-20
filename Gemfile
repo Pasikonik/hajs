@@ -31,6 +31,8 @@ gem 'active_model_serializers', '0.10.0.rc4'
 gem 'devise', github: 'plataformatec/devise', branch: 'master'
 gem 'ember-cli-rails', github: 'thoughtbot/ember-cli-rails', branch: 'sd-rails-5'
 
+gem 'rack-cors', require: 'rack/cors'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

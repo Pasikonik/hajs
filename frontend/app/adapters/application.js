@@ -1,9 +1,8 @@
-import Ember from 'ember';
 import DS from 'ember-data';
 import ENV from "../config/environment";
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 
-export default  DS.JSONAPIAdapter.extend(DataAdapterMixin, {
+export default  DS.JSONAPIAdapter.extend({
   namespace: 'api/v1',
   authorizer: 'authorizer:devise',
   // if your rails app is on a different port from your ember app
