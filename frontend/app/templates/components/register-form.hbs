@@ -1,0 +1,13 @@
+<form {{action "register" on="submit"}}>
+  <label for="email">Email</label>
+  {{input value=email placeholder="Enter Email"}}
+  <br>
+  <label for="password">Password</label>
+  {{input value=password type="password" placeholder="Enter Password"}}
+
+  <button type="submit">Register</button>
+</form>
+
+{{#if errorMessage}}
+  {{errorMessage}}
+{{/if}}
