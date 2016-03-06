@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users
       resources :places
+      resources :bills
+      resources :payments
     end
   end
 end
