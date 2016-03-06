@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  concern: MyString
+  amount: 1
+  place_id: 1
+  deadline: 2016-03-06
+  state: MyString
+
+two:
+  concern: MyString
+  amount: 1
+  place_id: 1
+  deadline: 2016-03-06
+  state: MyString
