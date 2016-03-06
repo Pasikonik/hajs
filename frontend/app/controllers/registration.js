@@ -11,8 +11,7 @@ export default Ember.Controller.extend({
         email: email,
         password: password
       });
-      user.save().then((user) => {
-        debugger;
+      user.save().then(() => {
         this.get('session').authenticate('authenticator:devise', email, password);
       });
     }
