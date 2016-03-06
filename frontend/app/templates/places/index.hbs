@@ -1,0 +1,8 @@
+<h2>Places</h2>
+
+{{link-to 'New place' 'places.new'}}
+<br><br>
+
+{{#each model as |place|}}
+  {{single-place model=place}}
+{{/each}}
