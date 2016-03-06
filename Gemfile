@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', github: 'rails/rails', branch: 'master'
+gem 'rails', '5.0.0.beta3'
 gem 'pg', '~> 0.18'
 gem 'puma'
 gem 'sass-rails', '~> 5.0'
@@ -12,8 +12,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'redis', '~> 3.0'
 
-gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
-gem 'devise', github: 'plataformatec/devise'
+gem 'devise', github: 'plataformatec/devise', branch: 'master'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: 'master'
 gem 'ember-cli-rails', github: 'thoughtbot/ember-cli-rails', branch: 'sd-rails-5'
 
 gem 'rack-cors', require: 'rack/cors'
