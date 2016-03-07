@@ -1,12 +1,10 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  belongs_to :place
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   before_save :ensure_authentication_token
-
-  belongs_to :place
 
   def ensure_authentication_token
     if authentication_token.blank?
