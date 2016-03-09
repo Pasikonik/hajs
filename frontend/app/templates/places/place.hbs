@@ -1,9 +1,65 @@
-{{link-to 'Back' 'places'}}
+<div></div>
+{{link-to 'Back' 'places' class="btn btn-default"}}
+{{link-to 'Edit' 'places.place.edit' place class="btn btn-default pull-right"}}
 <br>
-{{link-to 'Edit' 'places.place.edit' model}}
+<button {{action "toggleModal"}} class='btn btn-primary center-block'>Add Billl</button>
+<br>
 <br><br>
-<h2>{{model.name}}</h2>
-{{model.address}}
-<p>
-  {{model.description}}
-</p>
+<h2><b>{{place.name}}</b></h2>
+{{place.address}}
+<br>
+Payer: {{place.payer.email}}
+<h2>Month: {{current-month}}</h2>
+
+<br><br>
+<table class="table">
+  <thead>
+    <tr>
+        <th></th>
+        <th> Czynsz </th>
+      {{#each place.bills as |bill|}}
+        <th> {{bill.concern}} </th>
+      {{/each}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#each place.users as |user|}}
+      <tr>
+        <td> {{user.email}} </td>
+        <td> X </td>
+        {{#each user.payments as |payment|}}
+          <td class="{{payment.status}}"> {{payment.amount}}zł </td>
+        {{/each}}
+      </tr>
+    {{/each}}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td></td>
+      <td> X </td>
+      {{#each place.bills as |bill|}}
+        <td> {{bill.amount}} </td>
+      {{/each}}
+    </tr>
+  </tfoot>
+</table>
+
+
+
+Members:
+{{#each place.users as |member|}}
+  <p>{{member.email}}</p>
+{{/each}}
+
+{{#if isShowingModal}}
+  {{#modal-dialog close="toggleModal"
+                  translucentOverlay=true}}
+    {{bill-form newBill=newBill create=(action 'createBill')}}
+  {{/modal-dialog}}
+{{/if}}
+
+<br><br>
+Bills:
+{{#each place.bills as |bill|}}
+  <p>{{bill.concern}} -> {{bill.amount}}</p>
+{{/each}}
