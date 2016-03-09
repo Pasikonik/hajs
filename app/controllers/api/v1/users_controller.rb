@@ -1,4 +1,8 @@
 class Api::V1::UsersController < BaseController
+  def show
+    render json: User.find(params[:id].to_i)
+  end
+
   def create
     user = User.new user_params
     if user.save
