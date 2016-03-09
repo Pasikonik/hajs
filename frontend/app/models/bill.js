@@ -1,11 +1,12 @@
 import DS from 'ember-data';
 
-const { attr, belongsTo } = DS;
+const { Model, attr, belongsTo, hasMany } = DS;
 
-export default DS.Model.extend({
+export default Model.extend({
   concern: attr('string'),
   amount: attr('number'),
   deadline: attr('date'),
   state: attr('string'),
-  place: belongsTo('place')
+  place: belongsTo('place'),
+  payments: hasMany('payments')
 });
