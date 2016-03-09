@@ -14,6 +14,15 @@ class Api::V1::PlacesController < BaseController
     end
   end
 
+  def update
+    place = Place.find(params[:id])
+    if place.update(place_params)
+      render json: place, status: :ok
+    else
+      render json: { errors: place.errors }, status: :unprocessable_entity
+    end
+  end
+
   def show
     render json: Place.find(params[:id])
   end
@@ -21,11 +30,11 @@ class Api::V1::PlacesController < BaseController
   private
 
   def add_owner_as_member(place)
-    place.members << current_user
+    place.users << current_user
     place.save
   end
 
   def place_params
-    params.require(:data).require(:attributes).permit(:name, :description, :address, :area, :capacity, :rent)
+    ActiveModelSerializers::Deserialization.jsonapi_parse(params)
   end
 end
