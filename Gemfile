@@ -16,6 +16,8 @@ gem 'devise', github: 'plataformatec/devise', branch: 'master'
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: 'master'
 gem 'ember-cli-rails', github: 'thoughtbot/ember-cli-rails', branch: 'sd-rails-5'
 
+gem 'sidekiq'
+
 gem 'rack-cors', require: 'rack/cors'
 
 group :development, :test do
@@ -26,6 +28,7 @@ end
 group :development do
   gem 'web-console', '~> 3.0'
   gem 'spring'
+  gem 'hirb'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
