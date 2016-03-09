@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   belongs_to :place
+  has_many :payments, inverse_of: :user
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
