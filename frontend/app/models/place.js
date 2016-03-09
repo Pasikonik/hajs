@@ -10,5 +10,6 @@ export default DS.Model.extend({
   capacity: attr('number'),
   rent: attr('number'),
   payer: belongsTo('user'),
-  members: hasMany('user')
+  bills: hasMany('bill'),
+  users: hasMany('user')
 });
