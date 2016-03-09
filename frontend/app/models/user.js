@@ -1,6 +1,14 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
-export default DS.Model.extend({
-  email: DS.attr('string'),
-  password: DS.attr('string')
+const { Model, attr, hasMany } = DS;
+const { computed } = Ember;
+
+export default Model.extend({
+  email: attr('string'),
+  password: attr('string'),
+  payments: hasMany('payment'),
+
+
+
 });
