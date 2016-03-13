@@ -24,7 +24,7 @@ class Api::V1::PlacesController < BaseController
   end
 
   def show
-    render json: Place.find(params[:id])
+    render json: Place.find(params[:id]), include: '*'
   end
 
   private
