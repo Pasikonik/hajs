@@ -11,17 +11,18 @@
     </div>
 
     <div class="collapse navbar-collapse" id="collapser">
-      <ul class="nav navbar-nav">
-        <li>{{link-to 'Dashboard' 'dashboard'}}</li>
-        <li>{{link-to 'Places' 'places'}}</li>
-      </ul>
+      {{#if session.isAuthenticated}}
+        <ul class="nav navbar-nav">
+          <li>{{link-to 'Dashboard' 'dashboard'}}</li>
+        </ul>
+      {{/if}}
       <ul class="nav navbar-nav navbar-right">
         {{#if session.isAuthenticated}}
           <li class="dropdown {{if dropdownOpen 'open'}}">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" {{action 'toggleDropdown'}}>{{session.userEmail}} <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">Settings</a></li>
-              <li><a href="#">Logout</a></li>
+              <li><a href="#" {{action 'logout'}}>Logout</a></li>
             </ul>
           </li>
         {{else}}
