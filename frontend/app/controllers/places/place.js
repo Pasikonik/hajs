@@ -1,14 +1,19 @@
 import Ember from 'ember';
 
-const { computed } = Ember;
-const { alias } = computed;
+const { computed, inject } = Ember;
+const { alias, equal } = computed;
 
 export default Ember.Controller.extend({
+  session: inject.service(),
+
   isShowingModal: false,
   newBill: {},
-  // currentMonth: 'Marzec',
 
   place: alias('model'),
+  isPayer: computed('place.payer', function() {
+    return this.get('session.userEmail') === this.get('place.payer.email')
+  }),
+
 
   actions: {
     toggleModal() {
@@ -24,9 +29,33 @@ export default Ember.Controller.extend({
       bill.save().then(() => {
         place.get('bills').pushObject(bill);
         place.save();
-        const freshBill = this.store.findRecord('bill', bill.get('id'));
-        freshBill.get('payments');
+        this.store.find('bill', bill.get('id'));
       });
+    },
+    leave() {
+      const users = this.get('place.users');
+      users.forEach((user) => {
+        if (this.get('session.userEmail') === user.get('email')) {
+          this.get('place.users').removeObject(user);
+          this.transitionToRoute('places');
+        }
+      })
+    },
+    changeStatus(payment) {
+      if (!this.get('isPayer')) {
+        return;
+      }
+      const status = payment.get('status');
+      if (status === 'wait') {
+        payment.set('status', 'paid');
+        payment.save();
+      } else if (status === 'paid') {
+        payment.set('status', 'wait');
+        payment.save();
+      } else {
+        console.log('unknow status');
+      }
     }
   }
+
 });
