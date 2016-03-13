@@ -7,5 +7,5 @@ export default DS.Model.extend({
   status: attr('string'),
   user: belongsTo('user'),
   bill: belongsTo('bill'),
-  payments: hasMany('payment')
+  createdAt: attr('date')
 });
