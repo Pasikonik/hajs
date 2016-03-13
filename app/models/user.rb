@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  belongs_to :place
+  belongs_to :place, required: false
   has_many :payments, inverse_of: :user
 
   devise :database_authenticatable, :registerable,
