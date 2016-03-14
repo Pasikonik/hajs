@@ -1,11 +1,15 @@
 <form {{action "register" on="submit"}}>
-  <label for="email">Email</label>
-  {{input value=email placeholder="Enter Email"}}
-  <br>
-  <label for="password">Password</label>
-  {{input value=password type="password" placeholder="Enter Password"}}
+  <div class="form-group">
+    <label for="email">Email</label>
+    {{input value=email placeholder="Enter Email" class="form-control"}}
+  </div>
 
-  <button type="submit">Register</button>
+  <div class="form-group">
+    <label for="password">Password</label>
+    {{input value=password type="password" placeholder="Enter Password" class="form-control"}}
+  </div>
+
+  <button type="submit" class="center-block btn btn-default">Register</button>
 </form>
 
 {{#if errorMessage}}
