@@ -10,6 +10,7 @@ class Api::V1::PlacesController < BaseController
       add_owner_as_member(place)
       render json: place, status: :ok
     else
+      puts place.errors.full_messages
       render json: { errors: place.errors }, status: :unprocessable_entity
     end
   end
