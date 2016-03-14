@@ -14,7 +14,6 @@ export default Ember.Controller.extend({
     return this.get('session.userEmail') === this.get('place.payer.email')
   }),
 
-
   actions: {
     toggleModal() {
       this.toggleProperty('isShowingModal');
