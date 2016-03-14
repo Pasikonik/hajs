@@ -25,7 +25,12 @@
   <tbody>
     {{#each place.users as |user|}}
       <tr>
-        <td> {{user.email}} </td>
+        <td>
+          {{user.email}}
+          {{#if (if-user-is-payer user place.payer)}}
+            {{fa-icon 'user'}}
+          {{/if}}
+        </td>
         <td class="{{user.rent.firstObject.status}}" {{action 'changeStatus' user.rent.firstObject}}> {{user.rent.firstObject.amount}}zł </td>
         {{#each user.bills as |bill|}}
           <td class="{{bill.status}}" {{action 'changeStatus' bill}}> {{bill.amount}}zł </td>
@@ -50,3 +55,12 @@
     {{bill-form newBill=newBill create=(action 'createBill')}}
   {{/modal-dialog}}
 {{/if}}
+
+<div class="text-center"><b> Legend </b></div>
+<div class="col-xs-3 col-xs-offset-5">
+  <ul>
+    <li> {{fa-icon 'user'}} - Payer </li>
+    <li> {{fa-icon 'square' class='paid-legend'}} - Paid </li>
+    <li> {{fa-icon 'square' class='wait-legend'}} - Not paid </li>
+  </ul>
+</div>
