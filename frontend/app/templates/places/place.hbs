@@ -43,3 +43,10 @@
     </tr>
   </tfoot>
 </table>
+
+{{#if isShowingModal}}
+  {{#modal-dialog close="toggleModal"
+                  translucentOverlay=true}}
+    {{bill-form newBill=newBill create=(action 'createBill')}}
+  {{/modal-dialog}}
+{{/if}}
