@@ -27,8 +27,9 @@ export default Ember.Controller.extend({
 
       bill.save().then(() => {
         place.get('bills').pushObject(bill);
-        place.save();
-        this.store.find('bill', bill.get('id'));
+        place.save().then(() => {
+          place.reload();
+        })
       });
     },
     leave() {
