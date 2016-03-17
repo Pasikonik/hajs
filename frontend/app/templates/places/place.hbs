@@ -9,7 +9,6 @@
 <br><br>
 <h1 class="text-center"><b>{{place.name}}</b></h1>
 <div class="text-center">{{place.address}}</div>
-<div class="text-center"> Payer: {{place.payer.email}}</div>
 <h2 class="text-center">Month: {{current-month}}</h2>
 
 <table class="table text-center">
@@ -40,7 +39,7 @@
   </tbody>
   <tfoot>
     <tr>
-      <td></td>
+      <td> {{place.users.length}} </td>
       <td> {{place.rent}}zł </td>
       {{#each place.bills as |bill|}}
         <td> {{bill.amount}}zł </td>
