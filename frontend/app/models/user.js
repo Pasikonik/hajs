@@ -6,6 +6,9 @@ const { Model, attr, hasMany, belongsTo } = DS;
 const { computed } = Ember;
 
 export default Model.extend({
+  // firstName: attr('string'),
+  // lastName: attr('string'),
+  pseudonym: attr('string'),
   email: attr('string'),
   password: attr('string'),
   payments: hasMany('payment'),
