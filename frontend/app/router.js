@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('login');
   this.route('dashboard');
   this.route('registration');
+  this.route('settings');
 
   this.route('places', function() {
     this.route('new');
@@ -16,6 +17,7 @@ Router.map(function() {
       this.route('edit');
     });
   });
+
 });
 
 export default Router;
