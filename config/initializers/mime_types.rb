@@ -6,6 +6,7 @@
 api_mime_types = %W(
   application/vnd.api+json
   text/x-json
+  application/jsonrequest
   application/json
 )
 
