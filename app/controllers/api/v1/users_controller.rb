@@ -1,6 +1,6 @@
 class Api::V1::UsersController < BaseController
   def show
-    render json: User.find(params[:id].to_i), include: ['payments']
+    render json: User.find(params[:id]), include: ['payments']
   end
 
   def index
@@ -12,7 +12,6 @@ class Api::V1::UsersController < BaseController
     if user.save
       render json: user, status: :ok
     else
-      puts user.errors.full_messages
       render json: { errors: user.errors }, status: :unprocessable_entity
     end
   end
