@@ -9,7 +9,6 @@ Bundler.require(*Rails.groups)
 module Hajs
   class Application < Rails::Application
     config.active_job.queue_adapter = :sidekiq
-    # config.public_file_server.enabled = true
 
     config.middleware.insert_before 0, "Rack::Cors" do
       allow do
