@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 
-const { attr, belongsTo, hasMany } = DS;
+const { attr, belongsTo } = DS;
 
 export default DS.Model.extend({
   amount: attr('number'),

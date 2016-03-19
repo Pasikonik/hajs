@@ -15,7 +15,7 @@ export default Model.extend({
   place: belongsTo('place'),
 
   isRenter: computed('place', function() {
-    return !!this.get('place.id')
+    return !!this.get('place.id');
   }),
 
   billSet: computed.filter('payments', function(payment) {
@@ -30,6 +30,7 @@ export default Model.extend({
       return 0;
     }
   }),
+
   rent: computed.filter('payments', function(payment) {
     return !!!payment.get('bill.id');
   })

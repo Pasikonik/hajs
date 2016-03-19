@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 const { computed, inject } = Ember;
-const { alias, equal } = computed;
+const { alias } = computed;
 
 export default Ember.Controller.extend({
   session: inject.service(),
@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
 
   place: alias('model'),
   isPayer: computed('place.payer', function() {
-    return this.get('session.userEmail') === this.get('place.payer.email')
+    return this.get('session.userEmail') === this.get('place.payer.email');
   }),
 
   actions: {
@@ -29,7 +29,7 @@ export default Ember.Controller.extend({
         place.get('bills').pushObject(bill);
         place.save().then(() => {
           place.reload();
-        })
+        });
       });
     },
     leave() {
@@ -39,7 +39,7 @@ export default Ember.Controller.extend({
           this.get('place.users').removeObject(user);
           this.transitionToRoute('places');
         }
-      })
+      });
     },
     changeStatus(payment) {
       if (!this.get('isPayer')) {

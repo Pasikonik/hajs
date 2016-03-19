@@ -5,7 +5,7 @@ const { service } = Ember.inject;
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   session: service('session'),
-
+  
   model() {
     const email = this.get('session.userEmail');
     const userPromise = this.store.queryRecord('user', { filter: { email: email } });

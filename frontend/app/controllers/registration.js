@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
       });
       user.save().then(() => {
         this.get('session').authenticate('authenticator:devise', email, password);
-      }).catch((reason) => {
+      }).catch(() => {
         console.log('problems');
       });
     }
