@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
   actions: {
     submit() {
       this.get('model').save().then(() => {
-        console.log('updated');
+        this.notifications.success('Updated successfully!');
       })
     }
   }
