@@ -1,7 +1,7 @@
 {
-  "name": "frontend",
-  "version": "0.0.0",
-  "description": "Small description for frontend goes here",
+  "name": "HajsApp",
+  "version": "0.0.1",
+  "description": "Payment manager",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -14,7 +14,7 @@
   },
   "repository": "",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 5.8.0"
   },
   "author": "Michal Olejniczak",
   "license": "MIT",
