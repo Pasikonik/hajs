@@ -4,6 +4,7 @@ const { service } = Ember.inject;
 
 export default Ember.Controller.extend({
   session: service(),
+  notify: service(),
 
   actions: {
     register(email, password) {
@@ -12,7 +13,10 @@ export default Ember.Controller.extend({
         password: password
       });
       user.save().then(() => {
-        this.get('session').authenticate('authenticator:devise', email, password);
+        this.get('notify').success('successfully registered');
+        this.get('session').authenticate('authenticator:devise', email, password).then(() => {
+          this.get('notify').success('logged in...');
+        });
       }).catch(() => {
         console.log('problems');
       });
