@@ -1,7 +1,6 @@
 GIT
   remote: git://github.com/plataformatec/devise.git
   revision: 2b3799e6ceb315172d14a16103ab9fb1702f79fc
-  branch: master
   specs:
     devise (4.0.0.rc2)
       bcrypt (~> 3.0)
@@ -13,7 +12,6 @@ GIT
 GIT
   remote: git://github.com/rails-api/active_model_serializers.git
   revision: 5af7d96294be6922d954c9dcc3ccc5e743c44ec2
-  branch: master
   specs:
     active_model_serializers (0.10.0.rc4)
       actionpack (>= 4.0)
