@@ -51,7 +51,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.apiURL = "http://hajs.herokuapp.com"
   }
 
   return ENV;
