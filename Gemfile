@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby "2.3.0"
 
-gem 'rails', github: 'rails/rails'
+gem 'rails', '5.0.0.beta3'
 gem 'pg', '~> 0.18'
 gem 'puma'
 gem 'sass-rails', '~> 5.0'
@@ -13,8 +13,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'redis', '~> 3.0'
 
-gem 'devise', github: 'plataformatec/devise', branch: 'master'
-gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: 'master'
+gem 'devise', github: 'plataformatec/devise'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 gem 'ember-cli-rails', github: 'thoughtbot/ember-cli-rails', branch: 'sd-rails-5'
 
 gem 'sidekiq'
