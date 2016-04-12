@@ -1,0 +1,4 @@
+generate_rents:
+  cron: "0 0 1 * *"
+  class: RentsGeneratorJob
+  description: "Montly rents generation for all places"

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.3.0"
+ruby '2.3.0'
 
 gem 'rails', '5.0.0.beta3'
 gem 'pg', '~> 0.18'
@@ -17,7 +17,8 @@ gem 'devise', github: 'plataformatec/devise'
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 gem 'ember-cli-rails', github: 'thoughtbot/ember-cli-rails', branch: 'sd-rails-5'
 
-gem 'sidekiq'
+gem 'sidekiq', github: 'mperham/sidekiq', branch: 'rails5'
+gem 'sidekiq-scheduler'
 
 gem 'rack-cors', require: 'rack/cors'
 
