@@ -17,20 +17,9 @@ export default Model.extend({
   isRenter: computed('place', function() {
     return !!this.get('place.id');
   }),
-
-  billSet: computed.filter('payments', function(payment) {
+  bills: computed.filter('payments', function(payment) {
     return !!payment.get('bill.id');
   }),
-  bills: computed.sort('billSet', function(a, b) {
-    if (moment(a.get('createdAt')) > moment(b.get('createdAt'))){
-      return 1;
-    } else if (moment(a.get('createdAt')) < moment(b.get('createdAt'))){
-      return -1;
-    } else {
-      return 0;
-    }
-  }),
-
   rent: computed.filter('payments', function(payment) {
     return !!!payment.get('bill.id');
   })
