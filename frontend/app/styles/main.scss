@@ -19,6 +19,7 @@ table, th, td {
 }
 
 .month {
+  width: 240px;
   font-size: 30px;
   display: inline-block;
 }
@@ -29,4 +30,26 @@ table, th, td {
 
 tr.highlight {
   border: 4px solid #3366cc;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid black;
+}
+th {
+  background: #333;
+  color: white;
+  font-weight: bold;
+}
+td, th {
+  padding: 6px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+#proper-table td, th
+{
+  text-align:center;
+  vertical-align:middle;
 }
