@@ -10,11 +10,19 @@ table, th, td {
   background: #79d279;
 }
 
-
 .paid-legend {
   color: #79d279;
 }
 
 .wait-legend {
   color: #ffb3b3;
+}
+
+.month {
+  font-size: 30px;
+  display: inline-block;
+}
+
+.arrow {
+  display: inline-block;
 }
