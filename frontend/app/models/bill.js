@@ -8,5 +8,6 @@ export default Model.extend({
   deadline: attr('date'),
   state: attr('string'),
   place: belongsTo('place'),
-  payments: hasMany('payments')
+  payments: hasMany('payments'),
+  createdAt: attr('date')
 });
