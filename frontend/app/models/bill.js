@@ -9,5 +9,5 @@ export default Model.extend({
   state: attr('string'),
   place: belongsTo('place'),
   payments: hasMany('payments'),
-  createdAt: attr('date')
+  month: attr('string')
 });

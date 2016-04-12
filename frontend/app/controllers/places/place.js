@@ -16,7 +16,7 @@ export default Ember.Controller.extend({
   }),
   currentBills: computed('place.bills', 'month', function() {
     return this.get('place.bills').filter((bill) => {
-      return moment(bill.get('createdAt')).format('MM YYYY') === this.get('month');
+      return bill.get('month') === this.get('month');
     });
   }),
   billIds: computed('currentBills', function() {
@@ -39,6 +39,7 @@ export default Ember.Controller.extend({
       let bill = this.store.createRecord('bill', this.get('newBill'));
       const place = this.get('place');
       bill.set('place', place);
+      bill.set('month', this.get('month'));
       this.set('newBill', {});
       this.set('isShowingModal', false);
 
@@ -48,6 +49,9 @@ export default Ember.Controller.extend({
           place.reload();
         });
       });
+    },
+    generateRent() {
+      
     },
     leave() {
       const users = this.get('place.users');
