@@ -30,9 +30,9 @@
   </thead>
   <tbody>
     {{#each place.users as |user|}}
-      <tr>
+      <tr class={{if (eq user.email currentEmail) "highlight"}}>
         <td>
-          {{user.email}}
+          {{user.displayName}}
           {{#if (if-user-is-payer user place.payer)}}
             {{fa-icon 'user'}}
           {{/if}}

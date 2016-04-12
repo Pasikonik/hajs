@@ -29,6 +29,7 @@ export default Ember.Controller.extend({
     const [month, year] = this.get('month').split(' ');
     return moment(`${year}-${month}-01`);
   }),
+  currentEmail: alias('session.userEmail'),
 
   actions: {
     toggleModal() {

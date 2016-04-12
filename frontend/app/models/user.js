@@ -22,6 +22,9 @@ export default Model.extend({
   }),
   rent: computed.filter('payments', function(payment) {
     return !!!payment.get('bill.id');
+  }),
+  displayName: computed('email', 'pseudonym', function() {
+    return this.get('pseudonym') ? this.get('pseudonym') : this.get('email');
   })
 
 });

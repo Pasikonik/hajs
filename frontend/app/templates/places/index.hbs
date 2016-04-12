@@ -10,7 +10,6 @@
       <th> Description </th>
       <th> Address </th>
       <th> </th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -19,7 +18,6 @@
         <td> {{place.name}} </td>
         <td> {{place.description}} </td>
         <td> {{place.address}} </td>
-        <td> {{link-to 'JUMP' 'places.place' place.id class='btn btn-default'}} </td>
         <td> <button class="btn btn-default" {{action 'joinToPlace' place.id}}>JOIN</button></td>
       </tr>
     {{/each}}
