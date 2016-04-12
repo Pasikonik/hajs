@@ -6,6 +6,8 @@ const { alias } = computed;
 
 export default Ember.Controller.extend({
   session: inject.service(),
+  ajax: inject.service(),
+  notify: inject.service(),
 
   isShowingModal: false,
   newBill: {},
@@ -51,7 +53,16 @@ export default Ember.Controller.extend({
       });
     },
     generateRent() {
-      
+      return this.get('ajax').request('/generator', {
+        method: 'POST',
+        data: {
+          place: this.get('place.id'),
+          month: this.get('month')
+        }
+      }).then(() => {
+        this.get('notify').success('generated successfully');
+        this.get('place').reload();
+      });
     },
     leave() {
       const users = this.get('place.users');

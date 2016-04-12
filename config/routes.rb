@@ -11,4 +11,6 @@ Rails.application.routes.draw do
       resources :payments
     end
   end
+
+  post '/generator' => 'tasks#generator'
 end

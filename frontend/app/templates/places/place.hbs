@@ -38,7 +38,8 @@
             {{fa-icon 'user'}}
           {{/if}}
         </td>
-        <td class="{{user.rent.firstObject.status}}" {{action 'changeStatus' user.rent.firstObject}}> {{user.rent.firstObject.amount}}zł </td>
+        {{prepare-rent-cell rent=(get-proper-rent user.rents month)
+                            change=(action 'changeStatus')}}
         {{#each billIds as |billId|}}
           {{prepare-cell bill=(get-proper-bill user.bills billId)
                          change=(action 'changeStatus')}}

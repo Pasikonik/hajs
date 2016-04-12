@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import DS from 'ember-data';
-import moment from 'moment';
 
 const { Model, attr, hasMany, belongsTo } = DS;
 const { computed } = Ember;
@@ -20,11 +19,10 @@ export default Model.extend({
   bills: computed.filter('payments', function(payment) {
     return !!payment.get('bill.id');
   }),
-  rent: computed.filter('payments', function(payment) {
+  rents: computed.filter('payments', function(payment) {
     return !!!payment.get('bill.id');
   }),
   displayName: computed('email', 'pseudonym', function() {
     return this.get('pseudonym') ? this.get('pseudonym') : this.get('email');
   })
-
 });
