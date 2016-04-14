@@ -119,7 +119,7 @@ export default Ember.Controller.extend({
         return moment(rent.get('createdAt')).format('MM YYYY') === this.get('month');
       });
       if (rent.get('status') === 'wait') {
-        amount = amount + rent.get('amount');
+        amount += rent.get('amount');
       }
       return (amount > 0) ? `+${amount}` : 0;
     }
