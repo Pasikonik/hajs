@@ -10,13 +10,23 @@ table, th, td {
   background: #79d279;
 }
 
-.paid-legend {
-  color: #79d279;
+.legend {
+  text-align: center;
+
+  &__single {
+    padding: 8px;
+  }
+
+  .paid-legend {
+    color: #79d279;
+  }
+
+  .wait-legend {
+    color: #ffb3b3;
+  }
 }
 
-.wait-legend {
-  color: #ffb3b3;
-}
+
 
 .month {
   width: 240px;
