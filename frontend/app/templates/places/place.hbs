@@ -51,7 +51,7 @@
           {{prepare-cell bill=(get-proper-bill user.bills billId)
                          change=(action 'changeStatus')}}
         {{/each}}
-        <td class="cell">
+        <td class="cell {{if (eq (compute (action 'dept') user month) 0) 'paid' 'wait'}}">
           {{compute (action 'dept') user month}}
         </td>
       </tr>
