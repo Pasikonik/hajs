@@ -25,7 +25,12 @@
       {{/if}}
       <ul class="nav navbar-nav navbar-right">
         {{#if session.isAuthenticated}}
-          <li class="dropdown {{if dropdownOpen 'open'}}">
+          {{#basic-dropdown as |dropdown|}}
+           Content of the dropdown once it appears
+          {{else}}
+           {{session.userEmail}}
+          {{/basic-dropdown}}
+          {{!-- <li class="dropdown {{if dropdownOpen 'open'}}">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" {{action 'toggleDropdown'}}>{{session.userEmail}} <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li>
@@ -39,7 +44,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> --}}
         {{else}}
           <li>{{link-to 'Login' 'login'}}</li>
           <li>{{link-to 'Signup' 'registration'}}</li>
