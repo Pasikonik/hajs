@@ -23,7 +23,7 @@
 
 <br>
 
-<table class="" id="proper-table">
+<table id="proper-table">
   <thead>
     <tr>
       <th>Members</th>
@@ -31,6 +31,9 @@
       {{#each currentBills as |bill|}}
         <th> {{bill.concern}} </th>
       {{/each}}
+      <th>
+        Dept
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -48,6 +51,9 @@
           {{prepare-cell bill=(get-proper-bill user.bills billId)
                          change=(action 'changeStatus')}}
         {{/each}}
+        <td class="cell {{if (eq (compute (action 'dept') user month) 0) 'paid' 'wait'}}">
+          {{compute (action 'dept') user month}}
+        </td>
       </tr>
     {{/each}}
   </tbody>
@@ -58,6 +64,7 @@
       {{#each currentBills as |bill|}}
         <td class="cell"> {{bill.amount}}zł </td>
       {{/each}}
+      <td></td>
     </tr>
   </tfoot>
 </table>

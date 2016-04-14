@@ -65,6 +65,9 @@ export default Ember.Controller.extend({
       });
     },
     leave() {
+      if (!confirm('Are you sure?')) {
+        return;
+      }
       const users = this.get('place.users');
       users.forEach((user) => {
         if (this.get('session.userEmail') === user.get('email')) {
@@ -95,6 +98,30 @@ export default Ember.Controller.extend({
     nextMonth() {
       const previous = this.get('momentMonth').add('1', 'month');
       this.set('month', previous.format('MM YYYY'));
+    },
+    dept(user, month) {
+      let amount = 0;
+
+      const bills = this.store.peekAll('bill').filter((bill) => {
+        return bill.get('month') === month;
+      });
+      const billIds = bills.mapBy('id');
+      const payments = user.get('bills').filter((bill) => {
+        return billIds.includes(bill.get('bill.id')) && bill.get('status') === 'wait';
+      });
+      if (payments.length !== 0) {
+        const array = payments.mapBy('amount');
+        amount = array.reduce(function (prev, curr) {
+          return prev + curr;
+        });
+      }
+      const rent = user.get('rents').find((rent) => {
+        return moment(rent.get('createdAt')).format('MM YYYY') === this.get('month');
+      });
+      if (rent.get('status') === 'wait') {
+        amount = amount + rent.get('amount');
+      }
+      return (amount > 0) ? `+${amount}` : 0;
     }
   }
 
