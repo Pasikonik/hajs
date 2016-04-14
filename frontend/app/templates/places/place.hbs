@@ -38,7 +38,7 @@
       <tr class={{if (eq user.email currentEmail) "highlight"}}>
         <td>
           {{user.displayName}}
-          {{#if (if-user-is-payer user place.payer)}}
+          {{#if (eq user.email place.payer.email)}}
             {{fa-icon 'user'}}
           {{/if}}
         </td>
