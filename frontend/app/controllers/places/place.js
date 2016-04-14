@@ -118,7 +118,7 @@ export default Ember.Controller.extend({
       const rent = user.get('rents').find((rent) => {
         return moment(rent.get('createdAt')).format('MM YYYY') === this.get('month');
       });
-      if (rent.get('status') === 'wait') {
+      if (rent !== undefined && rent.get('status') === 'wait') {
         amount += rent.get('amount');
       }
       return (amount > 0) ? `+${amount}` : 0;
