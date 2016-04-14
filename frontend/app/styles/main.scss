@@ -36,6 +36,10 @@ table {
   width: 100%;
   border-collapse: collapse;
   border: 2px solid black;
+
+  thead > tr {
+    height: 40px;
+  }
 }
 th {
   background: #333;
@@ -43,7 +47,6 @@ th {
   font-weight: bold;
 }
 td, th {
-  padding: 6px;
   border: 1px solid #ccc;
   text-align: left;
 }
@@ -52,4 +55,12 @@ td, th {
 {
   text-align:center;
   vertical-align:middle;
+}
+
+.beta {
+  font-size: 13px;
+}
+
+.cell {
+  padding: 10px;
 }

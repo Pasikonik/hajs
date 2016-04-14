@@ -1,16 +1,23 @@
 <nav class="navbar navbar-inverse">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapser" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapser" aria-expanded="false" {{action 'mobileMenu'}}>
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">HajsApp beta</a>
+      <a class="navbar-brand" href="#">
+        <span class="app-name">
+          <strong>Hajs</strong>App
+        </span>
+        <span class="beta">
+          beta
+        </span>
+      </a>
     </div>
 
-    <div class="collapse navbar-collapse" id="collapser">
+    <div class="collapse navbar-collapse {{if mobileMenu 'in'}}" id="collapser">
       {{#if session.isAuthenticated}}
         <ul class="nav navbar-nav">
           <li>{{link-to 'Dashboard' 'dashboard'}}</li>
