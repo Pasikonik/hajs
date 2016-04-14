@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Payment manager",
   "private": true,
   "directories": {
@@ -21,7 +21,6 @@
   "devDependencies": {
     "broccoli-asset-rev": "^2.2.0",
     "ember-ajax": "2.0.1",
-    "ember-basic-dropdown": "0.11.0",
     "ember-bootstrap": "0.7.0",
     "ember-cli": "2.4.3",
     "ember-cli-app-version": "^1.0.0",
