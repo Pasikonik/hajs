@@ -7,9 +7,13 @@
 <button type="button" class="btn btn-warning pull-right" {{action 'leave'}}>Leave</button>
 
 <br>
-<br><br>
-<h1 class="text-center"><b>{{place.name}}</b></h1>
-<div class="text-center">{{place.address}}</div>
+<br>
+<div class="text-center">
+  {{fa-icon 'home' size='5'}}
+  <div class="place-name">{{place.name}}</div>
+  <div>{{place.address}}</div>
+</div>
+
 
 <div class="text-center">
   <i class="fa fa-arrow-left fa-2x arrow" {{action 'previousMonth'}}></i>
