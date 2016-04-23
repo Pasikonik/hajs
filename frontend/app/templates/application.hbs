@@ -25,8 +25,15 @@
       {{/if}}
       <ul class="nav navbar-nav navbar-right">
         {{#if session.isAuthenticated}}
+          <li class="balance">
+
+            <span class="badge progress-bar-{{if (eq session.currentUser.balance 0) 'success' 'danger'}}">
+              {{fa-icon 'balance-scale'}}
+              {{session.currentUser.balance}}
+            </span>
+          </li>
           <li class="dropdown {{if dropdownOpen 'open'}}">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" {{action 'toggleDropdown'}}>{{session.userEmail}} <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" {{action 'toggleDropdown'}}> {{session.userEmail}} <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li>
                 {{#link-to 'settings'}}
