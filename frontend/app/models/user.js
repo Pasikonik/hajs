@@ -3,10 +3,9 @@ import DS from 'ember-data';
 
 const { Model, attr, hasMany, belongsTo } = DS;
 const { computed } = Ember;
+const { filterBy } = computed;
 
 export default Model.extend({
-  // firstName: attr('string'),
-  // lastName: attr('string'),
   pseudonym: attr('string'),
   email: attr('string'),
   password: attr('string'),
@@ -24,5 +23,14 @@ export default Model.extend({
   }),
   displayName: computed('email', 'pseudonym', function() {
     return this.get('pseudonym') ? this.get('pseudonym') : this.get('email');
+  }),
+  paymentsToPay: computed.filterBy('payments', 'status', 'wait'),
+  balance: computed('paymentsToPay', function() {
+    const payments = this.get('paymentsToPay');
+    if (payments.length === 0) {
+      return 0;
+    } else {
+      return this.get('paymentsToPay').mapBy('amount').reduce((a, b) => a + b);
+    }
   })
 });
