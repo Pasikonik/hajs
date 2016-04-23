@@ -1,10 +1,10 @@
 import Ember from 'ember';
 import moment from 'moment';
 
-const { computed, inject } = Ember;
+const { computed, inject, Controller } = Ember;
 const { alias } = computed;
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   session: inject.service(),
   ajax: inject.service(),
   notify: inject.service(),
