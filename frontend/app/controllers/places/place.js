@@ -121,7 +121,7 @@ export default Ember.Controller.extend({
       if (rent !== undefined && rent.get('status') === 'wait') {
         amount += rent.get('amount');
       }
-      return (amount > 0) ? `+${amount}` : 0;
+      return amount;
     }
   }
 
