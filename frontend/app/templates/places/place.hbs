@@ -1,10 +1,18 @@
 {{#if isPayer}}
-  {{link-to 'Edit' 'places.place.edit' place class="btn btn-default pull-right"}}
-  <button {{action "toggleModal"}} class='btn btn-primary'>Add Billl</button>
+  {{#link-to 'places.place.edit' place class="btn btn-default pull-right"}}
+    {{t 'basic.edit'}}
+  {{/link-to}}
+  <button {{action "toggleModal"}} class='btn btn-primary'>
+    {{t 'place.new_bill'}}
+  </button>
   <br>
-  <button type="button" class="btn btn-success text-center" {{action 'generateRent'}}>Generate Rent</button>
+  <button type="button" class="btn btn-success text-center" {{action 'generateRent'}}>
+    {{t 'place.generate_rent'}}
+  </button>
 {{/if}}
-<button type="button" class="btn btn-warning pull-right" {{action 'leave'}}>Leave</button>
+<button type="button" class="btn btn-warning pull-right" {{action 'leave'}}>
+  {{t 'place.leave'}}
+</button>
 
 <br>
 <br>
@@ -26,13 +34,17 @@
 <table id="proper-table">
   <thead>
     <tr>
-      <th>Members</th>
-      <th> Rent </th>
+      <th>
+        {{t 'place.table.members'}}
+      </th>
+      <th>
+        {{t 'place.table.rent'}}
+      </th>
       {{#each currentBills as |bill|}}
         <th> {{bill.concern}} </th>
       {{/each}}
       <th>
-        Dept
+        {{t 'place.table.dept'}}
       </th>
     </tr>
   </thead>
@@ -79,9 +91,9 @@
 <br>
 
 <div class="legend">
-  <b> Legend </b>
+  <b> {{t 'place.legend.title'}} </b>
   <br>
-  <span class="legend__single">{{fa-icon 'user'}} - Payer</span>
-  <span class="legend__single">{{fa-icon 'square' class='paid-legend'}} - Paid</span>
-  <span class="legend__single">{{fa-icon 'square' class='wait-legend'}} - Not paid</span>
+  <span class="legend__single">{{fa-icon 'user'}} - {{t 'place.legend.payer'}} </span>
+  <span class="legend__single">{{fa-icon 'square' class='paid-legend'}} - {{t 'place.legend.paid'}} </span>
+  <span class="legend__single">{{fa-icon 'square' class='wait-legend'}} - {{t 'place.legend.not_paid'}} </span>
 </div>

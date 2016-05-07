@@ -20,7 +20,11 @@
     <div class="collapse navbar-collapse {{if mobileMenu 'in'}}" id="collapser">
       {{#if session.isAuthenticated}}
         <ul class="nav navbar-nav">
-          <li>{{link-to 'Dashboard' 'dashboard'}}</li>
+          <li>
+            {{#link-to 'dashboard'}}
+              {{t 'main.dashboard'}}
+            {{/link-to}}
+          </li>
         </ul>
       {{/if}}
       <ul class="nav navbar-nav navbar-right">
@@ -37,12 +41,12 @@
             <ul class="dropdown-menu">
               <li>
                 {{#link-to 'settings'}}
-                  {{fa-icon 'cog' fixedWidth=true}} Settings
+                  {{fa-icon 'cog' fixedWidth=true}} {{t 'main.settings'}}
                 {{/link-to}}
               </li>
               <li>
                 <a href="#" {{action 'logout'}}>
-                  {{fa-icon 'sign-out' fixedWidth=true}} Logout
+                  {{fa-icon 'sign-out' fixedWidth=true}} {{t 'main.logout'}}
                 </a>
               </li>
             </ul>
@@ -51,6 +55,11 @@
           <li>{{link-to 'Login' 'login'}}</li>
           <li>{{link-to 'Signup' 'registration'}}</li>
         {{/if}}
+        <li>
+          <a href="#" {{action 'changeLocale'}}>
+            {{locale}}
+          </a>
+        </li>
       </ul>
     </div>
   </div>

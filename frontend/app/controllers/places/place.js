@@ -8,6 +8,7 @@ export default Controller.extend({
   session: inject.service(),
   ajax: inject.service(),
   notify: inject.service(),
+  i18n: inject.service(),
 
   isShowingModal: false,
   newBill: {},
@@ -24,8 +25,10 @@ export default Controller.extend({
   billIds: computed('currentBills', function() {
     return this.get('currentBills').map((bill) => bill.get('id'));
   }),
-  redabableMonth: computed('month', function() {
-    return this.get('momentMonth').format('MMMM YYYY');
+  redabableMonth: computed('month', 'i18n.locale', function() {
+    const locale = this.get('i18n.locale');
+    moment.locale(locale);
+    return this.get('momentMonth').format('MMMM YYYY').capitalize();
   }),
   momentMonth: computed('month', function() {
     const [month, year] = this.get('month').split(' ');

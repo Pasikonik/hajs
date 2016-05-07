@@ -1,14 +1,16 @@
-<h2 class="text-center">Places</h2>
+<h2 class="text-center">{{t 'places.title'}}</h2>
 
-{{link-to 'New place' 'places.new' class='btn btn-default'}}
+{{#link-to 'places.new' class='btn btn-default'}}
+  {{t 'places.new'}}
+{{/link-to}}
 <br><br>
 
 <table class="table">
   <thead>
     <tr>
-      <th> Name </th>
-      <th> Description </th>
-      <th> Address </th>
+      <th> {{t 'places.table.name'}} </th>
+      <th> {{t 'places.table.description'}} </th>
+      <th> {{t 'places.table.address'}} </th>
       <th> </th>
     </tr>
   </thead>
@@ -18,7 +20,11 @@
         <td> {{place.name}} </td>
         <td> {{place.description}} </td>
         <td> {{place.address}} </td>
-        <td> <button class="btn btn-default" {{action 'joinToPlace' place.id}}>JOIN</button></td>
+        <td>
+          <button class="btn btn-default" {{action 'joinToPlace' place.id}}>
+            {{t 'places.table.join'}}
+          </button>
+        </td>
       </tr>
     {{/each}}
   </tbody>

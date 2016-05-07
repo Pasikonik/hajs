@@ -18,9 +18,17 @@ module.exports = function(environment) {
       // when it is created
     },
 
+    moment: {
+      includeLocales: ['eng', 'pl']
+    },
+
     contentSecurityPolicy: {
       'connect-src': "*"
     }
+  };
+
+  ENV.i18n = {
+    defaultLocale: 'pl'
   };
 
   ENV['ember-simple-auth'] = {
