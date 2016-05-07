@@ -24,9 +24,9 @@
 
 
 <div class="text-center">
-  <i class="fa fa-arrow-left fa-2x arrow" {{action 'previousMonth'}}></i>
+  {{fa-icon 'chevron-left' size='2' click=(action 'previousMonth')}}
   <div class="month">{{redabableMonth}}</div>
-  <i class="fa fa-arrow-right fa-2x arrow" {{action 'nextMonth'}}></i>
+  {{fa-icon 'chevron-right' size='2' click=(action 'nextMonth')}}
 </div>
 
 <br>

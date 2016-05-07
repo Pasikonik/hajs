@@ -1,14 +1,25 @@
 import Ember from 'ember';
 import moment from 'moment';
+import { EKMixin, keyDown } from 'ember-keyboard';
 
 const { computed, inject, Controller } = Ember;
 const { alias } = computed;
 
-export default Controller.extend({
+export default Controller.extend(Ember.Evented, EKMixin, {
   session: inject.service(),
   ajax: inject.service(),
   notify: inject.service(),
   i18n: inject.service(),
+
+  activateKeyboard: Ember.on('init', function() {
+    this.set('keyboardActivated', true);
+  }),
+  previousMonthEvent: Ember.on(keyDown('ArrowLeft'), function() {
+    this.send('previousMonth');
+  }),
+  nextMonthEvent: Ember.on(keyDown('ArrowRight'), function() {
+    this.send('nextMonth');
+  }),
 
   isShowingModal: false,
   newBill: {},
