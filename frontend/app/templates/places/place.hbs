@@ -41,7 +41,7 @@
         {{t 'place.table.rent'}}
       </th>
       {{#each currentBills as |bill|}}
-        <th> {{bill.concern}} </th>
+        <th title={{moment-format bill.createdAt}}> {{bill.concern}} </th>
       {{/each}}
       <th>
         {{t 'place.table.dept'}}
