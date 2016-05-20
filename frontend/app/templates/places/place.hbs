@@ -50,7 +50,7 @@
   </thead>
   <tbody>
     {{#each place.users as |user|}}
-      <tr class={{if (eq user.email currentEmail) "highlight"}}>
+      <tr class={{if (eq user.email currentEmail) 'highlight'}}>
         <td>
           {{user.displayName}}
           {{#if (eq user.email place.payer.email)}}
@@ -96,4 +96,5 @@
   <span class="legend__single">{{fa-icon 'user'}} - {{t 'place.legend.payer'}} </span>
   <span class="legend__single">{{fa-icon 'square' class='paid-legend'}} - {{t 'place.legend.paid'}} </span>
   <span class="legend__single">{{fa-icon 'square' class='wait-legend'}} - {{t 'place.legend.not_paid'}} </span>
+  <span class="legend__single">{{fa-icon 'square' class='sending-legend'}} - {{t 'place.legend.sending'}} </span>
 </div>
