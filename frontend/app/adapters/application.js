@@ -19,7 +19,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     let url = this._super(...arguments);
     const query = get(snapshot, 'adapterOptions.query');
     if(query) {
-      url += '?' + $.param(query);
+      url += '?' + Ember.$.param(query);
     }
     return url;
   }
