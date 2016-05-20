@@ -63,6 +63,7 @@ export default Controller.extend(Ember.Evented, EKMixin, {
       const place = this.get('place');
       bill.set('place', place);
       bill.set('month', this.get('month'));
+      bill.set('state', 'wait');
       this.set('newBill', {});
       this.set('isShowingModal', false);
 
@@ -98,18 +99,32 @@ export default Controller.extend(Ember.Evented, EKMixin, {
       });
     },
     changeStatus(payment) {
-      if (!this.get('isPayer')) {
-        return;
-      }
       const status = payment.get('status');
-      if (status === 'wait') {
-        payment.set('status', 'paid');
-        payment.save();
-      } else if (status === 'paid') {
-        payment.set('status', 'wait');
-        payment.save();
+      this.toggleProperty('changed');
+      if (!this.get('isPayer')) {
+        if (payment.get('user.id') === this.get('currentUser.id')) {
+          switch (payment.get('status')) {
+            case 'wait':
+              payment.set('status', 'sending');
+              break;
+            case 'sending':
+              payment.set('status', 'wait');
+              break;
+          }
+          payment.save();
+        }
       } else {
-        console.log('unknow status');
+        if (status === 'wait') {
+          payment.set('status', 'paid');
+          payment.save();
+        } else if (status === 'paid') {
+          payment.set('status', 'wait');
+          payment.save();
+        } else if (status === 'sending') {
+          payment.set('status', 'paid');
+        } else {
+          console.log(`status: ${payment.get('status')} is not supported`);
+        }
       }
     },
     previousMonth() {
@@ -145,5 +160,4 @@ export default Controller.extend(Ember.Evented, EKMixin, {
       return amount;
     }
   }
-
 });
