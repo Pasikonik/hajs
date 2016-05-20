@@ -27,7 +27,8 @@ export default {
       'title': 'Legenda',
       'payer': 'Płatnik',
       'paid': 'Zapłacone',
-      'not_paid': 'Nie zapłacone'
+      'not_paid': 'Nie zapłacone',
+      'sending': 'Wysyłanie'
     }
   },
   'basic': {

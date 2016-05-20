@@ -27,7 +27,8 @@ export default {
       'title': 'Legend',
       'payer': 'Payer',
       'paid': 'Paid',
-      'not_paid': 'Not paid'
+      'not_paid': 'Not paid',
+      'sending': 'Sending'
     }
   },
   'basic': {
