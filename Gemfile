@@ -14,7 +14,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'redis', '~> 3.0'
 
 gem 'devise', github: 'plataformatec/devise'
-gem 'active_model_serializers', '0.10.0.rc5'
+gem 'active_model_serializers'
 gem 'ember-cli-rails', github: 'thoughtbot/ember-cli-rails', branch: 'sd-rails-5'
 
 gem 'sidekiq', github: 'mperham/sidekiq', branch: 'rails5'

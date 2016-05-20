@@ -219,7 +219,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers (= 0.10.0.rc5)
+  active_model_serializers
   byebug
   coffee-rails (~> 4.1.0)
   devise!
