@@ -1,13 +1,21 @@
+$red: #ff3333;
+$green: #339966;
+$orange: orange;
+
 table, th, td {
     border: 1px solid black;
 }
 
 .wait {
-  background: #ffb3b3;
+  background: $red;
 }
 
 .paid {
-  background: #79d279;
+  background: $green;
+}
+
+.sending {
+  background: $orange;
 }
 
 .legend {
@@ -18,11 +26,15 @@ table, th, td {
   }
 
   .paid-legend {
-    color: #79d279;
+    color: $green;
   }
 
   .wait-legend {
-    color: #ffb3b3;
+    color: $red;
+  }
+
+  .sending-legend {
+    color: $orange
   }
 }
 
