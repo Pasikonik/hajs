@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import moment from 'moment';
+import _ from 'lodash/lodash';
 import { EKMixin, keyDown } from 'ember-keyboard';
 
 const { computed, inject, Controller } = Ember;
@@ -25,6 +26,12 @@ export default Controller.extend(Ember.Evented, EKMixin, {
   newBill: {},
 
   place: alias('model'),
+  currentUser: computed('session', function() {
+    const users =  this.get('store').peekAll('user');
+    return users.find((user) => {
+      return user.get('email') === this.get('session.data.authenticated.email');
+    });
+  }),
   isPayer: computed('place.payer', function() {
     return this.get('session.userEmail') === this.get('place.payer.email');
   }),
