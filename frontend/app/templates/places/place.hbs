@@ -51,7 +51,7 @@
   <tbody>
     {{#each place.users as |user|}}
       <tr class={{if (eq user.email currentEmail) 'highlight'}}>
-        <td>
+        <td title={{user.balance}}>
           {{user.displayName}}
           {{#if (eq user.email place.payer.email)}}
             {{fa-icon 'user'}}
