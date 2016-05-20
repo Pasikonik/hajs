@@ -1,6 +1,9 @@
 import DS from 'ember-data';
+import Ember from 'ember';
 
 const { Model, attr, belongsTo, hasMany } = DS;
+const { computed } = Ember;
+const { alias } = computed;
 
 export default Model.extend({
   concern: attr('string'),
@@ -9,5 +12,6 @@ export default Model.extend({
   state: attr('string'),
   place: belongsTo('place'),
   payments: hasMany('payments'),
-  month: attr('string')
+  month: attr('string'),
+  createdAt: attr('date')
 });
