@@ -19,7 +19,7 @@ module.exports = function(environment) {
     },
 
     moment: {
-      includeLocales: ['eng', 'pl']
+      includeLocales: ['pl']
     },
 
     contentSecurityPolicy: {
