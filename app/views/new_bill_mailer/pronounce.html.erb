@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style type="text/css" media="screen">
+      body { text-align: center; }
+    </style>
+  </head>
+  <body>
+    <h1>Witam, <%= @user.pseudonym %></h1>
+    <p>
+      Właśnie pojawił się nowy rachunek za:
+      <b>
+        <%= @bill.concern %>
+      </b>
+    </p>
+    <p>
+      Kwota do zapłaty dla Ciebie wynosi:
+      <b>
+        <%= @bill.single_payment %>zł
+      </b>
+    </p>
+    <p>Życze miłego dnia!</p>
+  </body>
+</html>

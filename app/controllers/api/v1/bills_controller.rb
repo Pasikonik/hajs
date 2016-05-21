@@ -7,6 +7,7 @@ class Api::V1::BillsController < BaseController
     bill = Bill.new bill_params
     if bill.save
       create_payments(bill)
+      send_emails(bill)
       render json: bill, status: :ok
     else
       render json: { errors: bill.errors }, status: :unprocessable_entity
@@ -25,5 +26,11 @@ class Api::V1::BillsController < BaseController
 
   def bill_params
     ActiveModelSerializers::Deserialization.jsonapi_parse(params)
+  end
+
+  def send_emails(bill)
+    bill.users.each do |user|
+      NewBillMailer.pronounce(user.id, bill.id).deliver_later
+    end
   end
 end
