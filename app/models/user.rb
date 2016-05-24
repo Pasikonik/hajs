@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   before_save :ensure_authentication_token
 
+  def name
+    pseudonym || email
+  end
+
   def balance
     payments.where(status: 'wait').map(&:amount).sum
   end
