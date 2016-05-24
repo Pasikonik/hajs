@@ -1,6 +1,6 @@
 class Api::V1::UsersController < BaseController
   def show
-    render json: User.find(params[:id]), include: ['payments']
+    render json: User.find(params[:id]), include: ['payments', 'bills']
   end
 
   def index
