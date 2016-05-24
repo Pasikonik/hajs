@@ -31,6 +31,7 @@ group :development do
   gem 'web-console', '~> 3.0'
   gem 'spring'
   gem 'hirb'
+  gem 'bullet'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
