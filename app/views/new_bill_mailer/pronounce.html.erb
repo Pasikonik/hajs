@@ -2,55 +2,14 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-    <style type="text/css" media="screen">
-      body {
-        background-color: #edf0f3
-      }
-
-      .content {
-        border-radius: 0px 0px 5px 5px;
-        background-color: #fff;
-        width: 30%;
-        margin: 0 auto;
-      }
-
-      .header {
-        font-weight: 700;
-        color: #fff;
-        font-size: 24px;
-        background-color: #339966;
-        padding: 10px;
-      }
-
-      .body {
-        padding: 20px 40px 40px 40px;
-      }
-
-      a {
-        color: #fff;
-        border-radius: 5px;
-        text-align: center;
-        background-color: #339966;
-        padding: 12px;
-      }
-
-      a:hover, a:visited, a:link, a:active {
-        text-decoration: none;
-      }
-
-      .link {
-        margin-top: 40px;
-        text-align: center;
-      }
-    </style>
   </head>
-  <body>
+  <body style="background-color: #edf0f3;">
 
-    <div class="content">
-      <div class="header">
+    <div class="content" style="border-radius:0px 0px 5px 5px;background-color:#fff;width:30%;margin:0 auto;">
+      <div class="header" style="font-weight: 700;color: #fff;font-size: 24px;background-color: #339966;padding: 10px;">
         HajsApp
       </div>
-      <div class="body">
+      <div class="body" style="padding: 20px 40px 40px 40px;">
         <h1>
           Witaj <%= @user.pseudonym %>!
         </h1>
@@ -68,8 +27,10 @@
         </p>
         <p>Życze miłego dnia!</p>
 
-        <div class="link">
-          <a href="http://hajs.herokuapp.com/">Przejdź do apki</a>
+        <div class="link" style="margin-top: 40px;text-align: center;">
+          <a href="http://hajs.herokuapp.com/" style="color: #fff;border-radius: 5px;text-align: center;background-color: #339966;padding: 12px;text-decoration: none">
+            Przejdź do apki
+          </a>
         </div>
       </div>
     </div>
