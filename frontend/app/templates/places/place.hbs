@@ -64,7 +64,7 @@
                          change=(action 'changeStatus')}}
         {{/each}}
         <td class="cell {{if (eq (compute (action 'dept') user month) 0) 'paid' 'wait'}}">
-          {{compute (action 'dept') user month}}
+          {{compute (action 'dept') user month}}zł
         </td>
       </tr>
     {{/each}}
