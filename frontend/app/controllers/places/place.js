@@ -122,6 +122,7 @@ export default Controller.extend(Ember.Evented, EKMixin, {
           payment.save();
         } else if (status === 'sending') {
           payment.set('status', 'paid');
+          payment.save();
         } else {
           console.log(`status: ${payment.get('status')} is not supported`);
         }
