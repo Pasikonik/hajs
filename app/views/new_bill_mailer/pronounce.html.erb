@@ -3,23 +3,76 @@
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
     <style type="text/css" media="screen">
-      body { text-align: center; }
+      body {
+        background-color: #edf0f3
+      }
+
+      .content {
+        border-radius: 0px 0px 5px 5px;
+        background-color: #fff;
+        width: 30%;
+        margin: 0 auto;
+      }
+
+      .header {
+        font-weight: 700;
+        color: #fff;
+        font-size: 24px;
+        background-color: #339966;
+        padding: 10px;
+      }
+
+      .body {
+        padding: 20px 40px 40px 40px;
+      }
+
+      a {
+        color: #fff;
+        border-radius: 5px;
+        text-align: center;
+        background-color: #339966;
+        padding: 12px;
+      }
+
+      a:hover, a:visited, a:link, a:active {
+        text-decoration: none;
+        text-align: center;
+      }
+
+      .link {
+        margin-top: 40px;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
-    <h1>Witam, <%= @user.pseudonym %></h1>
-    <p>
-      Właśnie pojawił się nowy rachunek za:
-      <b>
-        <%= @bill.concern %>
-      </b>
-    </p>
-    <p>
-      Kwota do zapłaty dla Ciebie wynosi:
-      <b>
-        <%= @bill.single_payment %>zł
-      </b>
-    </p>
-    <p>Życze miłego dnia!</p>
+
+    <div class="content">
+      <div class="header">
+        HajsApp
+      </div>
+      <div class="body">
+        <h1>
+          Witaj <%= @user.pseudonym %>!
+        </h1>
+        <p>
+          Właśnie pojawił się nowy rachunek za:
+          <b>
+            <%= @bill.concern %>
+          </b>
+        </p>
+        <p>
+          Kwota do zapłaty dla Ciebie wynosi:
+          <b>
+            <%= @bill.single_payment %>zł
+          </b>
+        </p>
+        <p>Życze miłego dnia!</p>
+
+        <div class="link">
+          <a href="http://hajs.herokuapp.com/">Przejdź do apki</a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
