@@ -1,19 +1,21 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
-gem 'rails', '>= 5.0.0.rc1', '< 5.1'
+gem 'rails', '~> 5.0.0'
 gem 'pg', '~> 0.18'
 gem 'puma'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2'
 
 gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
+gem 'turbolinks', '~> 5'
+gem 'jbuilder', '~> 2.5'
 gem 'redis', '~> 3.0'
 
-gem 'devise', github: 'plataformatec/devise'
+gem 'sinatra', github: 'sinatra/sinatra' # to delete after sidekiq fix dependencies
+
+gem 'devise'
 gem 'active_model_serializers'
 gem 'ember-cli-rails', github: 'thoughtbot/ember-cli-rails', branch: 'sd-rails-5'
 
