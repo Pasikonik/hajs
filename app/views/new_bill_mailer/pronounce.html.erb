@@ -5,22 +5,22 @@
   </head>
   <body style="background-color: #edf0f3;">
 
-    <div class="content" style="border-radius:0px 0px 5px 5px;background-color:#fff;width:350px;margin:0 auto;">
+    <div class="content" style="border-radius:0px 0px 5px 5px;background-color:#fff;width:400px;margin:0 auto;">
       <div class="header" style="font-weight: 700;color: #fff;font-size: 24px;background-color: #339966;padding: 10px;">
         HajsApp
       </div>
       <div class="body" style="padding: 10px 30px 30px 30px;">
-        <h1>
+        <h1 class="text-align: center;">
           Witaj <%= @user.pseudonym %>!
         </h1>
         <p>
-          Właśnie pojawił się nowy rachunek za:
+          Jest nowy rachunek za:
           <b>
             <%= @bill.concern %>
           </b>
         </p>
         <p>
-          Kwota do zapłaty dla Ciebie wynosi:
+          Do zapłaty masz:
           <b>
             <%= @bill.single_payment %>zł
           </b>
