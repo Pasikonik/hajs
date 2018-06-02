@@ -1,4 +1,4 @@
-### HajsApp
+### HajsApp (old one version)
 This is a payment management app for people which rent flat/house.
 
 stack | version
